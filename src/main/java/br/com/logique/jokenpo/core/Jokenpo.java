@@ -7,39 +7,29 @@ public class Jokenpo {
 	public final static int PAPER = 1;
 	public final static int SCISSORS = 2;
 	
-	private final Random random = new Random();
 	private final int[] totalChoice = new int[3];
-	private final int[] choices;
 	private final int maxRounds;
 	
 	public Jokenpo() {
 		maxRounds = 100;
-		choices = new int[maxRounds];
 	}
 	
 	public Jokenpo(int maxRound) {
 		this.maxRounds = maxRound;
-		choices = new int[maxRound];
 	}
 	
-	public int[] start() {
+	public void start() {
+		Random random = new Random();
 		int choice;
 		
 		for (int i = 0; i < maxRounds; ++i) {
 			choice = random.nextInt(3);
-			choices[i] = choice;
 			++totalChoice[choice];
 		}
-		
-		return choices;
 	}
 	
 	public int getMaxRounds() {
 		return maxRounds;
-	}
-	
-	public int[] getChoices() {
-		return choices;
 	}
 	
 	public int[] getTotalChoice() {
