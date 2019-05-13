@@ -8,28 +8,17 @@ public class Jokenpo {
 	public final static int SCISSORS = 2;
 	
 	private final int[] totalChoice = new int[3];
-	private final int maxRounds;
 	
-	public Jokenpo() {
-		maxRounds = 100;
-	}
-	
-	public Jokenpo(int maxRound) {
-		this.maxRounds = maxRound;
-	}
-	
-	public void start() {
+	public int[] play(final int rounds) {
 		Random random = new Random();
 		int choice;
 		
-		for (int i = 0; i < maxRounds; ++i) {
+		for (int i = 0; i < rounds; ++i) {
 			choice = random.nextInt(3);
 			++totalChoice[choice];
 		}
-	}
-	
-	public int getMaxRounds() {
-		return maxRounds;
+		
+		return totalChoice;
 	}
 	
 	public int[] getTotalChoice() {
